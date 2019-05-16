@@ -15,12 +15,15 @@ function Player(name, power) {
 // create protoype methods for player and opponent 
 Player.prototype.attack = function (enemy, damage) {
     console.log("YOU ATTACKED THE ZOMBIE!!")
+    console.log(`THe Zombie lost ${randomAttackVal} HP.`)
     return enemy.hp -= damage;
 }
 
 Player.prototype.getAttacked = function (damage) {
     console.log("THE ZOMBIE ATTACKED YOU!!")
+    console.log(`You lost ${randomAttackVal} HP.`)
     return this.hp -= damage;
+    
 }
 
 Player.prototype.print = function () {
@@ -90,7 +93,10 @@ function playRound(answer) {
         }
     ]).then(function (answer) {
         randomAttackVal = Math.floor(Math.random() * 5) + 1;
-        console.log("randomatack" + randomAttackVal);
+        console.log(`=============================
+The random number for this round was: ${randomAttackVal}
+You guessed: ${answer.guess}
+=========================`);
         if (answer.guess === randomAttackVal) {
             player1.attack(zombie, randomAttackVal);
             player1.print();
@@ -139,7 +145,7 @@ function endGameFinal() {
 }
 
 // we only have to call one funtion to make the whole thing work!
-createPlayer()
+createPlayer();
 
 
 
