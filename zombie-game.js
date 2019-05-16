@@ -97,12 +97,12 @@ function playRound(answer) {
 The random number for this round was: ${randomAttackVal}
 You guessed: ${answer.guess}
 =========================`);
-        if (answer.guess === randomAttackVal) {
+        if (answer.guess == randomAttackVal) {
             player1.attack(zombie, randomAttackVal);
             player1.print();
             zombie.print();
         }
-        else if (answer.guess !== randomAttackVal) {
+        else if (answer.guess != randomAttackVal) {
             player1.getAttacked(randomAttackVal);
             player1.print();
             zombie.print();
